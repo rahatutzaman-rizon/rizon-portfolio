@@ -18,6 +18,7 @@
 .about-para {
   width: 90% !important;
   margin-bottom: 2rem;
+  color:black;
 }
 
 .about-skills {
@@ -100,7 +101,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
     align-items: center;
-    color: white;
+    color: rgb(4, 1, 1);
   }
 
   .skill img {

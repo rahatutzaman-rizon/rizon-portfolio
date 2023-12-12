@@ -35,13 +35,13 @@
   font-size: 5rem;
   color: white;
   margin: 0;
-  font-family: 'Indie Flower', cursive;
+  /* font-family: 'Indie Flower', cursive; */
   overflow: hidden;
 }
 
 .tagline {
-  font-size: 1.1rem;
-  color: #c3073f;
+  font-size: 5rem;
+  color: #5f0ff3d3;
   margin: -1% 0 0 0;
   font-family: 'Orbit', sans-serif;
 }
@@ -181,8 +181,10 @@
   }
 
   .hero-btns {
-    gap: 1rem;
-    margin-top: 10%;
+    gap: 2rem;
+    margin-top: 30%;
+   
+    margin-bottom: 20%;
   }
 
   button {

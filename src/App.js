@@ -4,7 +4,8 @@ import Hero from './pages/Hero';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import Achievements from './pages/Achievements'
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
       <div className="home">
         <Hero />
         <About />
-        <Achievements/>
+      
         <Projects />
       
         <Contact />
+        <Footer></Footer>
         
       </div>
     </div>

@@ -23,7 +23,7 @@ const NavBar = () => {
         setScroll(true)
 
         setNavbarStyle({
-          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          backgroundColor: 'rgba(211, 225, 125, 0.43)',
         })
       } else {
         setNavbarStyle({})
@@ -45,19 +45,19 @@ const NavBar = () => {
           scroll ? 'scrolled' : ''
         }`}
       >
-        <div className="tophead">
+        <div className="tophead h-20">
           <h1>
             <Link
-              className="name-logo"
+              className="name-logo my-6"
               spy
               smooth
               offset={50}
               duration={500}
               to="home"
             >
-              Hafiz Kadir
+           Rahatutzaman Rizon
             </Link>{' '}
-            <span className="blink" />
+            <span className="" />
           </h1>
           <div
             className={`menu-btn ${open ? 'opened-btn' : ''}`}
@@ -74,7 +74,7 @@ const NavBar = () => {
               onClick={toggleMenu}
               to="home"
             >
-              Home,
+              Home
             </Link>
           </li>
           <li>
@@ -86,7 +86,7 @@ const NavBar = () => {
               onClick={toggleMenu}
               to="about"
             >
-              About,
+              About
             </Link>
           </li>
           <li>
@@ -98,7 +98,7 @@ const NavBar = () => {
               onClick={toggleMenu}
               to="achievements"
             >
-              Achievement,
+              Achievement
             </Link>
           </li>
           <li>
@@ -110,7 +110,7 @@ const NavBar = () => {
               onClick={toggleMenu}
               to="projects"
             >
-              Projects,
+              Projects
             </Link>
           </li>
           <li>
