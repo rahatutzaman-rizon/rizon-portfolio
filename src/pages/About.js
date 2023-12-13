@@ -42,7 +42,11 @@ import Netlify from '../assets/netlify.svg'
 import Heroku from '../assets/heroku_icon_130912.png'
 
 
+import tailwind from '../assets/tailwind.png'
 
+import nodejs from '../assets/nodejs.png'
+
+import mongodb from '../assets/mongodb.png'
 
 
 
@@ -51,8 +55,8 @@ import Heroku from '../assets/heroku_icon_130912.png'
 const About = () => (
   <section className="about" id="about">
     <div className="about-me">
-      <h2 className="title about-title">About Me</h2>
-      <p className="paragraph about-para">
+      <h2 className="title about-title">My Skill</h2>
+      <p className="paragraph about-para text-white">
       
 Hello, I am Rahatutzaman Rizon, currently pursuing my undergraduate degree in ICT at Mawlana Bhasani Science and Technology University. I am actively engaged in working on MERN Stack projects, showcasing my proficiency in full-stack development. With a strong foundation in ICT and a passion for problem-solving, I bring a dynamic skill set to the table. I am dedicated to leveraging technology to create innovative solutions and contribute positively to the field of information and communication technology.
         
@@ -105,8 +109,13 @@ Hello, I am Rahatutzaman Rizon, currently pursuing my undergraduate degree in IC
           <img src={Mui} alt="" />
           <p>MUI</p>
         </div>
+
+        <div className="skill">
+          <img src={tailwind} alt="" />
+          <p>Tailwind</p>
+        </div>
       </div>
-      <h2 className="skill-title">Back-End</h2>
+      <h2 className="skill-title">Database</h2>
       <div className="skills">
        
         
@@ -116,12 +125,32 @@ Hello, I am Rahatutzaman Rizon, currently pursuing my undergraduate degree in IC
           <p>MySQL</p>
         </div>
       
+        <div className="skill">
+          <img src={mongodb} alt="" />
+          <p>Mongodb</p>
+        </div>
+      
        
 
         <div className="skill">
           <img src={Firebase} alt="" />
           <p>Firebase</p>
         </div>
+      </div>
+
+
+      <h2 className="skill-title">Backend</h2>
+      <div className="skills">
+       
+        
+       
+        <div className="skill">
+          <img src={nodejs} alt="" />
+          <p>NodeJs</p>
+        </div>
+      
+       
+
       </div>
       
 

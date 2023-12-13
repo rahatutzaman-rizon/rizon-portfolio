@@ -6,6 +6,7 @@ const Footer = () => (
     <div class="container mx-auto text-center">
       <p>&copy; 2023 Rahatutzaman rizon portofolio</p>
       <p>Tangail,Dhaka</p>
+      <p>Contact :01771276400</p>
     </div>
   </footer>
 </div>

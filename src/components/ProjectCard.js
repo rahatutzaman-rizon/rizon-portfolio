@@ -13,9 +13,9 @@ const ProjectCard = (props) => (
     <i className="fa-regular fa-arrow-up-right" />
     <img src={props.image} alt="" />
     <div className="card-description">
-      <h3>{props.title}</h3>
+      <h3 className='my-2 text-3xl text-center font-bold text-sky-700'>{props.title}</h3>
       <p>{props.description}</p>
-      <div className="stacks">
+      <div className="stacks my-2">
         {
             props.stacks.map((stack, id) => (
               <button className="tech-stack" key={id}>
