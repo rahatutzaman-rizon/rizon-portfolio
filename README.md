@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<h1 align='center'> Portfolio - Hafiz Kadir 🤟🏻 </h1>
+<h1 align='center'> Portfolio - Rahatutzaman Rizon 🤟🏻 </h1>
 
 
 # Table of Contents
@@ -76,9 +76,7 @@ Clone this repository using the GitHub link provided below.
 
 In the terminal, go to your file directory and run this command.
 
-```
-$ git clone https://github.com/itsFiz/react-portfolio.git
-```
+
 
 
 
@@ -104,17 +102,10 @@ You may also see any lint errors in the console.
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Hafiz Kadir**
-
-- GitHub: [@itsFiz](https://github.com/PrantoshB)
-- Twitter: [@criedfizcken](https://twitter.com/criedfizcken)
-- LinkedIn: [Hafiz Kadir](https://www.linkedin.com/in/hfzkdr/)
-- Youtube: [Hafiz Kadir](https://www.youtube.com/@criedfizcken6200)
 
 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 🤝 Contributing <a name="contributing"></a>
@@ -142,6 +133,3 @@ This project is copyright free. But I'll be grateful if you consider mentioning 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<h2>Support if you can 💗</h2>
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/criedfizcken)

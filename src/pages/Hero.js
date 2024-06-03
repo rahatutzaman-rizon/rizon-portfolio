@@ -27,7 +27,7 @@ const Hero = () => (
         <div className="">
         <button class="bg-teal-300 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded">
         <a
-              href="https://drive.google.com/file/d/1c9K5_n0a-c0vL6y6ZamK5PMmdWXoq5ih/view?usp=sharing"
+              href="https://drive.google.com/file/d/1iFguqENp8LL63XYco26W61HeR-5bWemZ/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >
