@@ -5,8 +5,9 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-import Achievements from './pages/Achievements';
+
 import Blog from './pages/Blog';
+import AboutSection from './pages/Achievements';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       
         <Projects />
         <Blog></Blog>
-      <Achievements></Achievements>
+     <AboutSection></AboutSection>
         <Contact />
         <Footer></Footer>
         

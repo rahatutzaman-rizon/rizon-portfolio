@@ -44,6 +44,7 @@ const Hero = () => (
       <p align="left">
         {" "}
         <img
+        className="rounded"
           src="https://komarev.com/ghpvc/?username=itsfiz&label=Profile%20views&color=ce3636&style=flat"
           alt="rizon"
         />{" "}

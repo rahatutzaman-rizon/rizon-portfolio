@@ -7,11 +7,11 @@ const Blog = () => {
   const profileData = {
     "personalInfo": {
       "name": "Rahatutzaman Rizon",
-      "title": "Software Developer",
-      "email": "rizon@example.com",
-      "phone": "+880 1XXX-XXXXXX",
-      "location": { "city": "Dhaka", "country": "Bangladesh" },
-      "summary": "Passionate software developer with a strong focus on web technologies. Skilled in React, Node.js, and database management. Committed to delivering high-quality, scalable solutions that drive business growth.",
+      "title": "Full Stack Developer || Software Developer",
+      "email": "rizonrahat199@gmail.com",
+      "phone": "+880 1771276400 (WhatsApp)",
+      "location": { "city": "Tangail, Dhaka", "country": "Bangladesh" },
+      "summary": "As a software developer seeking an entry-level role, with a focus on applying problem-solving skills to create efficient and innovative solutions. Dedicated to contributing technical expertise in a collaborative environment.",
       "links": {
         "linkedin": "https://www.linkedin.com/in/rahatutzamanrizon",
         "github": "https://github.com/rizon",
@@ -19,42 +19,52 @@ const Blog = () => {
       }
     },
     "skills": {
-      "programmingLanguages": ["JavaScript", "Python", "Java", "C++"],
-      "webTechnologies": ["React", "Node.js", "Express", "Redux"],
-      "databases": ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
-      "cloudPlatforms": ["AWS", "Google Cloud", "Heroku"],
-      "tools": ["Git", "Docker", "Jira", "Figma"]
+      "languages": ["C++", "JavaScript", "Python"],
+      "frontEnd": ["HTML", "CSS", "React", "Tailwind", "Next.js", "Redux"],
+      "backEnd": ["Node.js", "Express", "JWT"],
+      "databases": ["MySQL", "MongoDB"],
+      "tools": ["GitHub", "VS Code", "Netlify", "Figma", "Vercel", "Postman"]
     },
-    "projects": [
-      {
-        "name": "RealTime Collab",
-        "description": "A real-time collaborative coding platform with syntax highlighting and video chat",
-        "technologies": ["React", "Node.js", "Socket.IO", "WebRTC"],
-        "link": "https://github.com/rizon/realtime-collab",
-        "highlights": ["Supports multiple languages", "5,000+ users worldwide"]
-      },
-      {
-        "name": "AI-Driven Task Manager",
-        "description": "An intelligent task management app that uses machine learning to prioritize tasks",
-        "technologies": ["Vue.js", "Python", "Flask", "TensorFlow"],
-        "link": "https://ai-taskmanager.rizon.com",
-        "highlights": ["ML model trained on 100,000+ tasks", "Google Calendar integration"]
-      }
-    ],
+    
     "workExperience": [
       {
-        "title": "Senior Software Developer",
-        "company": "TechInnovate Solutions",
-        "location": "Dhaka, Bangladesh",
-        "startDate": "2022-01",
+        "title": "Project Associate",
+        "company": "Farhana's BrainStation",
+        "location": "Bangladesh",
+        "startDate": "2024-05",
         "endDate": null,
         "current": true,
         "responsibilities": [
-          "Lead a team of 5 developers in building a large-scale e-commerce platform",
-          "Optimized database queries, resulting in 40% performance improvement"
+          "Handle projects from start to finish, delivering quality results on time.",
+          "Work with cross-functional teams, organize tasks, and enable communication.",
+          "Use project management tools, track progress, and follow best practices.",
+          "Study project needs, make plans, and give updates to stakeholders."
+        ]
+      },
+      {
+        "title": "Intern Software Developer",
+        "company": "Business Automation Ltd",
+        "location": "Bangladesh",
+        "startDate": "2024-02",
+        "endDate": "2024-04",
+        "current": false,
+        "responsibilities": [
+          "Complete a 3-month internship focused on streamlining operations.",
+          "Develop skills in SQL, frameworks, testing, and SDLC methodologies.",
+          "Contribute to team projects, aligning with company goals.",
+          "Apply knowledge to real-world projects."
         ]
       }
-    ]
+    ],
+    "education": {
+      "degree": "B.Sc. in Information and Communication Technology",
+      "institution": "Mawlana Bhashani Science and Technology University",
+      "period": "2019-2023",
+      "gpa": 3.46
+    },
+    "problemSolving": {
+      "platforms": ["CodeChef", "Beecrowd", "LeetCode", "GitHub"]
+    }
   };
 
   useEffect(() => {
@@ -100,6 +110,16 @@ const Blog = () => {
         >
           {profileData.personalInfo.title} | {profileData.personalInfo.location.city}, {profileData.personalInfo.location.country}
         </motion.p>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          className="mt-6 flex justify-center space-x-4"
+        >
+          <a href={profileData.personalInfo.links.portfolio} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Portfolio</a> |
+          <a href={profileData.personalInfo.links.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">GitHub</a> |
+          <a href={profileData.personalInfo.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
+        </motion.div>
       </header>
 
       <main className="max-w-4xl mx-auto space-y-16">
@@ -111,9 +131,9 @@ const Blog = () => {
         >
           <h2 className="text-3xl font-bold text-gray-800 mb-6">About Me</h2>
           <p className="text-lg text-gray-700">{profileData.personalInfo.summary}</p>
-          <div className="mt-6 flex space-x-4">
-            <a href={profileData.personalInfo.links.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">GitHub</a>
-            <a href={profileData.personalInfo.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
+          <div className="mt-6 space-y-2">
+            <p>✉️ {profileData.personalInfo.email}</p>
+            <p>📞 {profileData.personalInfo.phone}</p>
           </div>
         </motion.section>
 
@@ -125,7 +145,7 @@ const Blog = () => {
         >
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Tech Stack</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {Object.entries(profileData.skills).slice(0, 6).map(([category, skills], index) => (
+            {Object.entries(profileData.skills).map(([category, skills], index) => (
               <motion.div
                 key={category}
                 initial={{ y: 50, opacity: 0 }}
@@ -135,39 +155,14 @@ const Blog = () => {
               >
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">{category.replace(/([A-Z])/g, ' $1').trim()}</h3>
                 <ul className="list-disc list-inside text-gray-700">
-                  {skills.slice(0, 3).map(skill => <li key={skill}>{skill}</li>)}
+                  {skills.slice(0, 4).map(skill => <li key={skill}>{skill}</li>)}
                 </ul>
               </motion.div>
             ))}
           </div>
         </motion.section>
 
-        <motion.section
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-          className="bg-white shadow-xl rounded-lg p-6 sm:p-10"
-        >
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">Latest Projects</h2>
-          {profileData.projects.map((project, index) => (
-            <motion.div
-              key={project.name}
-              initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 * index }}
-              className="mb-8 last:mb-0"
-            >
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{project.name}</h3>
-              <p className="text-gray-700 mb-3">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.technologies.map(tech => (
-                  <span key={tech} className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">{tech}</span>
-                ))}
-              </div>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">View Project →</a>
-            </motion.div>
-          ))}
-        </motion.section>
+       
 
         <motion.section
           initial={{ opacity: 0 }}
@@ -199,21 +194,63 @@ const Blog = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
-          className="bg-gradient-to-r from-green-400 to-blue-500 shadow-xl rounded-lg p-6 sm:p-10 text-white text-center"
+          className="space-y-8"
+        >
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="bg-gradient-to-r from-green-400 to-blue-500 shadow-xl rounded-lg p-6 sm:p-10 text-white"
+          >
+            <h2 className="text-3xl font-bold mb-4">Education</h2>
+            <h3 className="text-xl font-semibold">{profileData.education.degree}</h3>
+            <p>{profileData.education.institution}</p>
+            <p>{profileData.education.period} | GPA: {profileData.education.gpa}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0,opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="bg-gradient-to-r from-purple-500 to-pink-500 shadow-xl rounded-lg p-6 sm:p-10 text-white text-center"
+          >
+            <h2 className="text-3xl font-bold mb-6">Problem Solving</h2>
+            <p className="text-lg mb-6">I love solving coding challenges to sharpen my skills. Find me on these platforms:</p>
+            <div className="flex justify-center space-x-4">
+              {profileData.problemSolving.platforms.map(platform => (
+                <motion.a
+                  key={platform}
+                  href={`https://www.${platform.toLowerCase()}.com/rizon`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-white text-purple-500 font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition duration-300"
+                >
+                  {platform}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        </motion.section>
+
+        <motion.section
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+          className="bg-gradient-to-r from-yellow-400 to-orange-500 shadow-xl rounded-lg p-6 sm:p-10 text-white text-center"
         >
           <h2 className="text-3xl font-bold mb-6">Let's Connect!</h2>
           <p className="text-lg mb-6">I'm always excited about new opportunities, collaborations, or just a good tech chat. Feel free to reach out!</p>
-          <div className="space-y-2">
-            <p>✉️ {profileData.personalInfo.email}</p>
-            <p>📱 {profileData.personalInfo.phone}</p>
-          </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
+          <motion.a
+            href={`mailto:${profileData.personalInfo.email}`}
+            whileHover={{ scale: 1.05, rotate: [0, -10, 10, -10, 10, 0] }}
             whileTap={{ scale: 0.95 }}
-            className="mt-6 bg-white text-blue-500 font-bold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition duration-300"
+            transition={{ duration: 0.6 }}
+            className="inline-block bg-white text-orange-500 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 text-lg"
           >
             Say Hello! 👋
-          </motion.button>
+          </motion.a>
         </motion.section>
       </main>
 

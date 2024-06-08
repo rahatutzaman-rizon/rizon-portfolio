@@ -1,158 +1,103 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [file, setFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username === 'rizon' && password === 'rizon') {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-    setPreviewUrl(URL.createObjectURL(selectedFile));
-  };
-
-  const handleUpload = () => {
-    if (file) {
-      console.log('Uploading file:', file.name);
-      // Add your upload logic here
-    }
-  };
-
-  const LoginSection = () => (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md">
-        <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">Portfolio Dashboard</h2>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-              Username
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="flex items-center justify-center">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Sign In
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-
-  const DetailsSection = () => (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Portfolio Details</h1>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Upload Your Work</h2>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="file">
-            Select File
-          </label>
-          <input
-            type="file"
-            id="file"
-            accept="image/*,application/pdf"
-            onChange={handleFileChange}
-            className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          />
-        </div>
-        {previewUrl && (
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold text-gray-700 mb-2">Preview</h3>
-            <img src={previewUrl} alt="Preview" className="max-w-full h-auto rounded-lg" />
-          </div>
-        )}
-        <button
-          onClick={handleUpload}
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Upload
-        </button>
-      </div>
-
-      <div className="mt-8 bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Your Portfolio</h2>
-        {/* Add your portfolio items here */}
-        <p className="text-gray-600">Your uploaded work will appear here.</p>
-      </div>
-      
-      <button 
-        onClick={() => setIsLoggedIn(false)} 
-        className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      >
-        Log Out
-      </button>
-    </div>
-  );
-
-  const HomeSection = () => (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Welcome to My Portfolio</h1>
-      <div className="bg-white shadow-lg rounded-lg p-6 text-center">
-        <p className="text-lg text-gray-700 mb-6">
-          Please log in to view and manage your portfolio details.
-        </p>
-        <p className="text-sm text-red-500 mb-4">Login failed. Please try again.</p>
-      </div>
-
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Add some sample portfolio items or placeholders */}
-        {[1, 2, 3].map((item) => (
-          <div key={item} className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <div className="h-48 bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-500">Image {item}</span>
-            </div>
-            <div className="p-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Project {item}</h3>
-              <p className="text-gray-600">A brief description of the project goes here.</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
-    <div className="Dashboard">
-      {!isLoggedIn ? (
-        username === '' && password === '' ? <LoginSection /> : <HomeSection />
-      ) : (
-        <DetailsSection />
-      )}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-800 to-indigo-900 text-white">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeInOut' }}
+        className="text-4xl font-bold mb-8 text-center"
+      >
+        <Link to="/" className="text-white hover:text-blue-300 transition-colors duration-300">
+          Home
+        </Link>
+      </motion.div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
+          className="bg-gray-800 rounded-lg p-6 shadow-lg"
+        >
+          <h3 className="text-2xl font-semibold mb-4 text-blue-300">About Me</h3>
+          <p className="mb-4">
+            As a software developer seeking an entry-level role, I am passionate about applying problem-solving skills to create efficient and innovative solutions. I am dedicated to contributing my technical expertise in a collaborative environment.
+          </p>
+          <p>
+            With a B.Sc. in Information and Communication Technology from Mawlana Bhashani Science and Technology University (CGPA: 3.46), I have gained a solid foundation in programming languages like C++, JavaScript, and Python.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
+          className="bg-gray-800 rounded-lg p-6 shadow-lg"
+        >
+          <h3 className="text-2xl font-semibold mb-4 text-blue-300">Skills</h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h4 className="text-lg font-semibold mb-2 text-green-400">Front-End</h4>
+              <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React</li>
+                <li>Tailwind CSS</li>
+                <li>Firebase</li>
+                <li>Next.js</li>
+                <li>Redux</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-2 text-green-400">Back-End</h4>
+              <ul>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>JWT</li>
+              </ul>
+              <h4 className="text-lg font-semibold mb-2 text-green-400 mt-4">Database</h4>
+              <ul>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.6 }}
+          className="bg-gray-800 rounded-lg p-6 shadow-lg"
+        >
+          <h3 className="text-2xl font-semibold mb-4 text-blue-300">Projects</h3>
+          <ul>
+            <li>
+              <h4 className="text-lg font-semibold mb-2 text-yellow-300">Pet Adoption Corner</h4>
+              <p className="mb-2">Designed and implemented a streamlined pet adoption platform.</p>
+              <p className="text-sm text-gray-400">
+                <span className="font-semibold">Technologies:</span> React, Tailwind CSS, Flowbite-React, Firebase, MongoDB, Node.js
+              </p>
+              <p className="text-sm text-gray-400">
+                <span className="font-semibold">Deployment:</span> <a href="#" className="text-blue-400 hover:text-blue-300">View Site</a> | <a href="#" className="text-blue-400 hover:text-blue-300">Client</a> | <a href="#" className="text-blue-400 hover:text-blue-300">Server</a>
+              </p>
+            </li>
+            <li className="mt-4">
+              <h4 className="text-lg font-semibold mb-2 text-yellow-300">Boi-Bazar</h4>
+              <p className="mb-2">A secure library system for efficient book management.</p>
+              <p className="text-sm text-gray-400">
+                <span className="font-semibold">Technologies:</span> React, Tailwind CSS, DaisyUI, Firebase, MongoDB, Node.js
+              </p>
+              <p className="text-sm text-gray-400">
+                <span className="font-semibold">Deployment:</span> <a href="#" className="text-blue-400 hover:text-blue-300">View Site</a> | <a href="#" className="text-blue-400 hover:text-blue-300">Client</a> | <a href="#" className="text-blue-400 hover:text-blue-300">Server</a>
+              </p>
+            </li>
+          </ul>
+        </motion.div>
+      </div>
     </div>
   );
 };

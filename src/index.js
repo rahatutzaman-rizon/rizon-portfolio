@@ -9,6 +9,11 @@ import {
 } from "react-router-dom";
 import App from './App';
 import Dashboard from './pages/Dashboard';
+import BlogCard from './pages/BlogCard';
+import AboutSection from './pages/Achievements';
+import Contact from './pages/Contact';
+import ProjectCard from './components/ProjectCard';
+import Projects from './pages/Projects';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +23,23 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element:<Dashboard></Dashboard>,
+  },
+  {
+    path: "/blog",
+    element:<BlogCard></BlogCard>,
+  },
+
+  {
+    path: "/contact",
+    element:<Contact></Contact>,
+  },
+  {
+    path: "/project",
+    element:<Projects></Projects>,
+  },
+  {
+    path: "/about",
+    element:<AboutSection></AboutSection>,
   },
 
 ]);

@@ -23,7 +23,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# Portfolio - Hafiz Kadir 🤟🏻 <a name="about-project"></a>
+# Portfolio- Rahatutzaman Rizon🤟🏻 <a name="about-project"></a>
 
 This Personal Portfolio is a dynamic and interactive portfolio website built with React and Redux in the Front-End. It provides a modern and visually appealing platform for showcasing your skills, projects, and achievements to potential employers or clients.
 

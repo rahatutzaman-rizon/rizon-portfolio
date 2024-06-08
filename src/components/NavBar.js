@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './NavBar.css'
-import { Link } from 'react-scroll'
+import { Link } from 'react-router-dom'
+
 
 const NavBar = () => {
   const [navbarStyle, setNavbarStyle] = useState({})
@@ -53,7 +54,7 @@ const NavBar = () => {
               smooth
               offset={50}
               duration={500}
-              to="home"
+              to="/"
             >
            Rahatutzaman Rizon
             </Link>{' '}
@@ -72,7 +73,7 @@ const NavBar = () => {
               offset={50}
               duration={500}
               onClick={toggleMenu}
-              to="home"
+              to="/"
             >
               Home
             </Link>
@@ -89,6 +90,20 @@ const NavBar = () => {
               About
             </Link>
           </li>
+
+
+          <li>
+            <Link
+              spy
+              smooth
+              offset={50}
+              duration={500}
+              onClick={toggleMenu}
+              to="/blog"
+            >
+              Blog
+            </Link>
+          </li>
          
           <li>
             <Link
@@ -102,6 +117,21 @@ const NavBar = () => {
               Projects
             </Link>
           </li>
+
+          <li>
+            <Link
+              spy
+              smooth
+              offset={50}
+              duration={500}
+              onClick={toggleMenu}
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+          </li>
+
+
           <li>
             <li>
               <Link
