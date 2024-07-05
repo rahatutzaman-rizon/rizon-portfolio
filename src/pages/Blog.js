@@ -7,7 +7,7 @@ const Blog = () => {
   const profileData = {
     "personalInfo": {
       "name": "Rahatutzaman Rizon",
-      "title": "Full Stack Developer || Software Developer",
+      "title ": "Full Stack Developer || Software Developer",
       "email": "rizonrahat199@gmail.com",
       "phone": "+880 1771276400 (WhatsApp)",
       "location": { "city": "Tangail, Dhaka", "country": "Bangladesh" },

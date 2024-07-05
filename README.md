@@ -6,7 +6,7 @@
 # Table of Contents
 
 - [Table of Contents](#-table-of-contents)
-- [ Portfolio - Hafiz Kadir 🤟🏻](#-about-project-)
+- [ Portfolio -Rahatutzaman Rizon 🤟🏻](#-about-project-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -39,8 +39,6 @@ This Personal Portfolio is a dynamic and interactive portfolio website built wit
   </ul>
 </details>
 
-### App Screenshot
-![screenshot](https://github.com/itsFiz/react-portfolio/blob/master/reactportfolio.png?raw=true)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -85,9 +83,9 @@ In the terminal, go to your file directory and run this command.
 Kindly modify the files as needed.
 
 In the project directory, you can run:
-```
-$ npm start
-```
+
+###  npm run start
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 

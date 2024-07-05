@@ -1,275 +1,197 @@
-import React from 'react'
-import './About.css'
-import HTML from '../assets/html.png'
-import jQuery from '../assets/jquery.png'
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaReact, FaNodeJs, FaDatabase, FaCode, FaPalette, FaComments } from 'react-icons/fa';
+import { SiJavascript, SiHtml5, SiCss3, SiMongodb, SiExpress, SiGit } from 'react-icons/si';
+import { TypeAnimation } from 'react-type-animation';
 
-import VSCode from '../assets/vscode.png'
-import Figma from '../assets/figma.png'
-import ReactIcon from '../assets/react.png'
+const SkillCategory = ({ title, skills, icon: Icon }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-import NPMlogo from '../assets/npm.png'
-import GitLogo from '../assets/git.png'
-import GitHublogo from '../assets/github.png'
-import GMeet from '../assets/meet.png'
-import Zoomlogo from '../assets/zoom.webp'
-import SkypeLogo from '../assets/skype.png'
-import Canva from '../assets/canva.png'
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-12 bg-gray-800 rounded-lg p-6 shadow-lg"
+    >
+      <motion.div
+        className="flex items-center justify-between cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3 className="text-2xl font-bold text-purple-300 flex items-center">
+          <Icon className="mr-2" />
+          {title}
+        </h3>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <FaCode />
+        </motion.div>
+      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4"
+          >
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gray-700 p-4 rounded-lg flex flex-col items-center justify-center"
+              >
+                <skill.icon className="text-4xl mb-2 text-purple-400" />
+                <p className="text-sm text-center text-gray-300">{skill.name}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
-import CSS from '../assets/css.png'
-import BootStrap from '../assets/bootstrap.png'
-import JavaScript from '../assets/javascript.png'
+const About = () => {
+  const skillCategories = [
+    {
+      title: "Front-End",
+      icon: FaReact,
+      skills: [
+        { name: "React", icon: FaReact },
+        { name: "JavaScript", icon: SiJavascript },
+        { name: "HTML5", icon: SiHtml5 },
+        { name: "CSS3", icon: SiCss3 },
+      ]
+    },
+    {
+      title: "Back-End",
+      icon: FaNodeJs,
+      skills: [
+        { name: "Node.js", icon: FaNodeJs },
+        { name: "Express.js", icon: SiExpress },
+        { name: "MongoDB", icon: SiMongodb },
+      ]
+    },
+    {
+      title: "Tools",
+      icon: FaCode,
+      skills: [
+        { name: "Git", icon: SiGit },
+        { name: "VS Code", icon: FaCode },
+        { name: "Postman", icon: FaDatabase },
+      ]
+    },
+  ];
 
-import PostMan from '../assets/postman.png'
-import MySql from '../assets/mysqll.png'
-import Firebase from '../assets/firebase.png'
+  return (
+    <section className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
+        >
+          My Journey in Tech
+        </motion.h2>
 
-import xD from '../assets/xdd.png'
-
-import Teams from '../assets/TEAMS.png'
-import XMind from '../assets/XMins.ico'
-
-import Android from '../assets/androidstudio.png'
-
-import Gitlab from '../assets/gitlab.svg'
-
-import Drawio from '../assets/drawio.png'
-
-import matlab from '../assets/matlab.png'
-
-import Mui from '../assets/mui.png'
-import Discord from '../assets/discord.png'
-import Netlify from '../assets/netlify.svg'
-import Heroku from '../assets/heroku_icon_130912.png'
-
-
-import tailwind from '../assets/tailwind.png'
-
-import nodejs from '../assets/nodejs.png'
-
-import mongodb from '../assets/mongodb.png'
-
-
-
-
-
-const About = () => (
-  <section className="about" id="about">
-    <div className="about-me">
-      <h2 className="title about-title">My Skill</h2>
-      <p className="paragraph about-para text-white">
-      
-Hello, I am Rahatutzaman Rizon, currently pursuing my undergraduate degree in ICT at Mawlana Bhasani Science and Technology University. I am actively engaged in working on MERN Stack projects, showcasing my proficiency in full-stack development. With a strong foundation in ICT and a passion for problem-solving, I bring a dynamic skill set to the table. I am dedicated to leveraging technology to create innovative solutions and contribute positively to the field of information and communication technology.
-        
-      </p>
-      <button class="bg-teal-300 hover:bg-sky-400 text-white font-bold py-2 px-4 rounded">
-        <a
-              href="https://drive.google.com/file/d/1c9K5_n0a-c0vL6y6ZamK5PMmdWXoq5ih/view?usp=sharing"
-              target="_blank"
-              rel="noreferrer"
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="text-3xl font-bold mb-4 text-purple-300">About Me</h3>
+            <TypeAnimation
+              sequence={[
+                'Hello, I am Rahatutzaman Rizon',
+                1000,
+                'I am a MERN Stack Developer',
+                1000,
+                'I am passionate about problem-solving',
+                1000,
+              ]}
+              wrapper="p"
+              cursor={true}
+              repeat={Infinity}
+              className="text-xl text-gray-300 mb-6"
+            />
+            <p className="text-gray-300 mb-6">
+              Currently pursuing my undergraduate degree in ICT at Mawlana Bhasani Science and Technology University. 
+              I'm dedicated to crafting efficient and innovative solutions using the MERN stack.
+            </p>
+            <motion.a
+              href="#"
+              className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Get CV
-            </a>
-  </button>
-          
-    </div>
-    <div className="about-skills">
-      <h2 className="skill-title">Clients & Collaborators</h2>
-      <div className="skills">
-        
+              <FaCode className="mr-2" /> View Projects
+            </motion.a>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-gray-800 p-6 rounded-lg shadow-xl"
+          >
+            <h3 className="text-2xl font-bold mb-4 text-purple-300">Tech Enthusiasm</h3>
+            <div className="flex justify-center space-x-4">
+              {[FaReact, FaNodeJs, SiMongodb, SiExpress].map((Icon, index) => (
+                <motion.div
+                  key={index}
+                  className="text-5xl text-purple-400"
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: index * 0.2,
+                  }}
+                >
+                  <Icon />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="space-y-8">
+          {skillCategories.map((category, index) => (
+            <SkillCategory key={index} {...category} />
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-20 text-center"
+        >
+          <h3 className="text-2xl font-bold mb-6 text-purple-300">Soft Skills</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {["Critical Thinking", "Communication", "Teamwork", "Problem Solving", "Adaptability"].map((skill, index) => (
+              <motion.span
+                key={index}
+                className="bg-gray-800 px-4 py-2 rounded-full text-sm text-gray-300"
+                whileHover={{ scale: 1.1, backgroundColor: "#4C1D95" }}
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
       </div>
-      <h2 className="skill-title">Front-End</h2>
-      <div className="skills">
-        <div className="skill">
-          <img src={ReactIcon} alt="" />
-          <p>React</p>
-        </div>
-        <div className="skill">
-          <img src={JavaScript} alt="" />
-          <p>JavaScript</p>
-        </div>
-        
-        <div className="skill">
-          <img src={HTML} alt="" />
-          <p>HTML5</p>
-        </div>
-        <div className="skill">
-          <img src={CSS} alt="" />
-          <p>CSS3</p>
-        </div>
-        <div className="skill">
-          <img src={jQuery} alt="" />
-          <p>jQuery</p>
-        </div>
-        
-        <div className="skill">
-          <img src={BootStrap} alt="" />
-          <p>Bootstrap</p>
-        </div>
-        <div className="skill">
-          <img src={Mui} alt="" />
-          <p>MUI</p>
-        </div>
+    </section>
+  );
+};
 
-        <div className="skill">
-          <img src={tailwind} alt="" />
-          <p>Tailwind</p>
-        </div>
-      </div>
-      <h2 className="skill-title">Database</h2>
-      <div className="skills">
-       
-        
-       
-        <div className="skill">
-          <img src={MySql} alt="" />
-          <p>MySQL</p>
-        </div>
-      
-        <div className="skill">
-          <img src={mongodb} alt="" />
-          <p>Mongodb</p>
-        </div>
-      
-       
-
-        <div className="skill">
-          <img src={Firebase} alt="" />
-          <p>Firebase</p>
-        </div>
-      </div>
-
-
-      <h2 className="skill-title">Backend</h2>
-      <div className="skills">
-       
-        
-       
-        <div className="skill">
-          <img src={nodejs} alt="" />
-          <p>NodeJs</p>
-        </div>
-      
-       
-
-      </div>
-      
-
-      
-      <h2 className="skill-title">Version Control & Deployment</h2>
-      <div className="skills">
-        <div className="skill">
-          <img src={GitLogo} alt="" />
-          <p>Git</p>
-        </div>
-        <div className="skill">
-          <img src={GitHublogo} alt="" />
-          <p>GitHub</p>
-        </div>
-        <div className="skill">
-          <img src={Gitlab} alt="" />
-          <p>GitLab</p>
-        </div>
-       
-        <div className="skill">
-          <img src={Netlify} alt="" />
-          <p>Netlify</p>
-        </div>
-        <div className="skill">
-          <img src={Heroku} alt="" />
-          <p>Heroku</p>
-        </div>
-      </div>
-      <h2 className="skill-title">Tools</h2>
-      <div className="skills">
-        <div className="skill">
-          <img src={VSCode} alt="" />
-          <p>VS Code</p>
-        </div>
-        
-        <div className="skill">
-          <img src={matlab} alt="" />
-          <p>Matlab</p>
-        </div>
-
-        <div className="skill">
-          <img src={PostMan} alt="" />
-          <p>Postman</p>
-        </div>
-        <div className="skill">
-          <img src={Android} alt="" />
-          <p>Android Studio</p>
-        </div>
-        <div className="skill">
-          <img src={NPMlogo} alt="" />
-          <p>npm</p>
-        </div>
-        
-      </div>
-      <h2 className="skill-title">Design</h2>
-      <div className="skills">
-        <div className="skill">
-          <img src={Canva} alt="" />
-          <p>Canva</p>
-        </div>
-        <div className="skill">
-          <img src={Figma} alt="" />
-          <p>Figma</p>
-        </div>
-        <div className="skill">
-          <img src={xD} alt="" />
-          <p>Adobe XD</p>
-        </div>
-        <div className="skill">
-          <img src={XMind} alt="" />
-          <p>XMind </p>
-        </div>
-        <div className="skill">
-          <img src={Drawio} alt="" />
-          <p>draw.io</p>
-        </div>
-      </div>
-      <h2 className="skill-title">Communication</h2>
-      <div className="skills">
-      <div className="skill">
-          <img src={Discord} alt="" />
-          <p>Discord</p>
-        </div>
-        <div className="skill">
-          <img src={Teams} alt="" />
-          <p>Teams</p>
-        </div>
-
-        <div className="skill">
-          <img src={SkypeLogo} alt="" />
-          <p>Skype</p>
-        </div>
-        <div className="skill">
-          <img src={GMeet} alt="" />
-          <p>Google Meet</p>
-        </div>
-        <div className="skill">
-          <img src={Zoomlogo} alt="" />
-          <p>Zoom</p>
-        </div>
-      </div>
-      <h2 className="skill-title">Soft Skills</h2>
-      <div className="skills">
-        <p className="soft-skill">Critical Thinking</p>
-        <p className="soft-skill">Communication</p>
-        <p className="soft-skill">Teamwork</p>
-        <p className="soft-skill">Collaboration</p>
-        <p className="soft-skill">Creativity</p>
-
-        <p className="soft-skill">Leadership</p>
-        <p className="soft-skill">Problem Solving</p>
-        <p className="soft-skill">Time Management</p>
-        <p className="soft-skill">Emotional Intelligence</p>
-        <p className="soft-skill">Adaptability</p>
-      </div>
-    
-    </div>
-    
-  </section>
-)
-
-export default About
+export default About;
