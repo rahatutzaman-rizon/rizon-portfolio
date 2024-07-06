@@ -21,86 +21,65 @@ const Projects = () => {
     };
   }, []);
 
-
-  
   const projectData = [
     {
-      image_url: 'https://i.ibb.co/s1GGsqZ/Screenshot-46.png',
-      project_name: "Pet Adoption Corner",
-      description: 'A user-friendly pet adoption platform allows anyone to easily adopt pets, promoting inclusivity in providing homes for animals in need.',
-      long_description: 'The Pet Adoption Corner is a comprehensive platform designed to connect animals in need with loving homes. It features an intuitive user interface that allows potential adopters to browse through available pets, filtering by species, breed, age, and location. The donation system enables users to contribute financially or offer their pets for adoption, ensuring a constant flow of support for animal welfare.',
+      image_url: 'https://i.ibb.co/VTYJCyL/petadoption.png',
+      project_name: "Pet Adoption Corner System",
+      description: "A streamlined pet adoption platform with an integrated pet food shop.",
+      long_description: "A comprehensive pet adoption platform featuring adoption requests, fundraising campaigns, and donation management. Users can adopt pets, create fundraising campaigns, and manage donations with options to view, remove, donate, and request refunds for their contributions.",
       features: [
-        'User-friendly pet browsing and adoption process',
-        'Secure donation system for financial contributions',
-        'Admin panel for managing listings and users',
-        'Notification system for adoption updates',
-        'Integration with local animal shelters'
+        'Adoption Requests: Users can adopt a pet and remove it from the pet listing',
+        'Fundraising Campaigns: Implemented a campaign creation feature for user fund collection',
+        'Donation Management: Users can view, remove, donate and request refunds for their contributions',
+        'Integrated pet food shop'
       ],
-      tech_stack: ['React', 'Tanstack', 'Express', 'NodeJs', 'Firebase', 'MongoDB'],
-      frontend_details: 'Built with React for a responsive and interactive UI. Utilizes Tanstack Query for efficient data fetching and state management.',
-      backend_details: 'Express and Node.js power the server-side logic, with Firebase handling authentication and real-time updates.',
+      tech_stack: ['React JS', 'Tailwind', 'Flowbite-React', 'Firebase', 'MongoDB', 'Node.js'],
+      frontend_details: 'Built with React JS Library and styled using Tailwind and Flowbite-React for a responsive and modern UI.',
+      backend_details: 'Node.js powers the server-side logic, with Firebase handling authentication and real-time updates.',
       database_details: 'MongoDB stores user profiles, pet information, and donation records, ensuring scalability and quick data retrieval.',
-      source_link: 'https://pet-adoption-30ae0.web.app/',
-      github_link: 'https://github.com/yourusername/pet-adoption-corner',
+      source_link: 'https://pet-adoption-five.vercel.app',
+      github_link_client: 'https://github.com/rahatutzaman-rizon/pet-adoption-corner',
+      github_link_server: 'https://github.com/rahatutzaman-rizon/Pet-Adoption-Corner-Server',
     },
     {
-      image_url: 'https://i.ibb.co/5vz3p7T/Screenshot-48.png',
+      image_url: 'https://i.ibb.co/KrN9LcP/book.png',
       project_name: "Boi Bazar - Modern Library System",
-      description: "A comprehensive digital library management system that streamlines book browsing, borrowing, and administration.",
-      long_description: "Boi Bazar revolutionizes the traditional library experience with a modern, user-friendly interface. It offers an extensive digital catalog, efficient search and filter options, and a seamless checkout process. The platform includes features for both users and administrators, ensuring smooth library operations and an enhanced reading experience.",
+      description: "A secure library management system for efficient book management.",
+      long_description: "Boi Bazar is a secure library management system with categorized book selection, a comprehensive database, and secure routing for efficient book management. It allows students to browse books by categories or genres and maintains a well-organized database to store information about all books.",
       features: [
-        'Advanced search and categorization system',
-        'User profiles with reading history and recommendations',
-        'Real-time availability updates',
-        'Automated reminders for due dates',
-        'Analytics dashboard for librarians'
+        'Categorized Book Selection: Allow students to browse books by categories or genres',
+        'Comprehensive Database: Maintain a well-organized database to store information about all books',
+        'Secure Routing: Implement private routes to ensure secure access, utilizing Firebase for enhanced security'
       ],
-      tech_stack: ['React', 'MongoDB', 'Node.js', 'Express', 'Redux', 'Tailwind CSS'],
-      frontend_details: 'React-based frontend with Redux for state management. Tailwind CSS ensures a responsive and modern design.',
-      backend_details: 'Node.js and Express power the backend, handling user authentication, book management, and API requests.',
-      database_details: 'MongoDB stores book information, user data, and borrowing records, allowing for efficient querying and updates.',
-      source_link: 'https://boi-bazar-library.netlify.app/',
-      github_link: 'https://github.com/yourusername/boi-bazar',
+      tech_stack: ['React JS', 'Tailwind', 'DaisyUI', 'Firebase', 'MongoDB', 'Node.js'],
+      frontend_details: 'React-based frontend with Tailwind and DaisyUI for a responsive and modern design.',
+      backend_details: 'Node.js powers the backend, handling user authentication and book management.',
+      database_details: 'MongoDB stores book information and user data, allowing for efficient querying and updates.',
+      source_link: 'https://dainty-choux-b6b746.netlify.app/',
+      github_link_client: 'https://github.com/rahatutzaman-rizon/Boi-Bazar-library',
+      github_link_server: 'https://github.com/rahatutzaman-rizon/Boi-Bazar-Server',
     },
     {
-      image_url: 'https://i.ibb.co/Qk9Gnjg/Screenshot-49.png',
-      project_name: "Gadget Finder",
-      description: "An intuitive e-commerce platform for discovering and purchasing the latest electronics and gadgets.",
-      long_description: "Gadget Finder is a cutting-edge e-commerce solution tailored for tech enthusiasts. It offers a vast array of electronics from top brands, complete with detailed product information, user reviews, and comparison tools. The platform features a smart recommendation system and a seamless checkout process, enhancing the overall shopping experience.",
+      image_url: 'https://i.ibb.co/Lrd5BYq/student.png',
+      project_name: "Student Project Progress Management System",
+      description: "An integrated system for managing student projects, including task assignment, progress tracking, and communication features.",
+      long_description: "A comprehensive system for managing student projects, including task assignment, progress tracking, feedback loop, and communication features for teachers and students. It allows teachers to assign projects with deadlines, students to submit work and track progress, and provides a platform for grading, feedback, and collaboration.",
       features: [
-        'Advanced product search and filtering',
-        'User reviews and ratings system',
-        'Product comparison tool',
-        'Secure payment gateway integration',
-        'Personalized product recommendations'
+        'Task Management: Teachers assign projects with deadlines, students submit work and track progress',
+        'Feedback Loop: Teachers grade submissions and provide feedback, students receive notifications',
+        'Communication Hub: Integrated discussion forum for collaboration',
+        'Notifications system to keep users informed about deadlines and updates'
       ],
-      tech_stack: ['React', 'Tanstack', 'Express', 'Node.js', 'Firebase', 'MongoDB', 'Stripe'],
-      frontend_details: 'React-based frontend with Tanstack Query for efficient data management. Implements lazy loading for improved performance.',
-      backend_details: 'Express and Node.js handle server-side logic, with Firebase for real-time updates and authentication.',
-      database_details: 'MongoDB stores product catalogs, user data, and order information. Implements indexing for fast search results.',
-      source_link: 'https://gadget-finder-store.web.app/',
-      github_link: 'https://github.com/yourusername/gadget-finder',
+      tech_stack: ['React JS', 'Tailwind', 'DaisyUI', 'Firebase', 'MongoDB', 'Node.js'],
+      frontend_details: 'React-based frontend with Tailwind and  React library Famer Motion for a responsive and modern design.',
+      backend_details: 'Node.js powers the backend, handling user authentication and Nodemailer for Email System.',
+      database_details: 'MongoDB stores book information and user data, allowing for efficient querying and updates.',
+      source_link: 'https://student-project-management-client.vercel.app/',
+      github_link_client: 'https://github.com/rahatutzaman-rizon/student-project-management-client',
+      github_link_server: 'https://github.com/rahatutzaman-rizon/Student-project-management-server',
     },
-    {
-      image_url: 'https://i.ibb.co/XJvGYhX/project-image-4.png',
-      project_name: "EcoTrack",
-      description: "A sustainability-focused application that helps users monitor and reduce their carbon footprint.",
-      long_description: "EcoTrack is an innovative platform designed to empower individuals and businesses to make environmentally conscious decisions. It provides real-time tracking of carbon emissions, personalized suggestions for reducing environmental impact, and community features to encourage sustainable practices.",
-      features: [
-        'Personal carbon footprint calculator',
-        'Daily eco-challenges and tips',
-        'Integration with smart home devices for energy monitoring',
-        'Community leaderboard and achievements',
-        'Educational resources on sustainability'
-      ],
-      tech_stack: ['React Native', 'GraphQL', 'Apollo', 'Node.js', 'PostgreSQL', 'AWS'],
-      frontend_details: 'Built with React Native for cross-platform mobile support. Apollo Client manages GraphQL queries and local state.',
-      backend_details: 'Node.js backend with GraphQL API for flexible data querying. Utilizes AWS Lambda for serverless architecture.',
-      database_details: 'PostgreSQL database for structured data storage, with PostGIS extension for location-based queries.',
-      source_link: 'https://ecotrack-app.com',
-      github_link: 'https://github.com/yourusername/ecotrack',
-    }
   ];
+  
  
   return (
     <section id="projects" className="py-20 min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 to-blue-900">
@@ -273,7 +252,7 @@ const ProjectModal = ({ project, onClose }) => {
               Live Demo <FaExternalLinkAlt className="ml-2" />
             </a>
             <a 
-              href={project.github_link} 
+              href={project. github_link_client} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center text-gray-600 hover:text-gray-800 transition duration-300"
