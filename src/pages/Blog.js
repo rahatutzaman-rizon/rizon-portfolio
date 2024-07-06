@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGlobe } from 'react-icons/fa';
 import { MdWork, MdSchool } from 'react-icons/md';
 import { SiCodechef, SiLeetcode, SiGithub } from 'react-icons/si';
 
@@ -20,6 +20,7 @@ const ProfilePage = () => {
       "links": {
         "linkedin": "https://www.linkedin.com/in/rahatutzamanrizon",
         "github": "https://github.com/rahatutzaman-rizon",
+        "website": "https://rahatutzaman-rizon-portfolio.vercel.app/" // Replace with your actual website URL
       }
     },
     "workExperience": [
@@ -59,7 +60,12 @@ const ProfilePage = () => {
       "gpa": 3.46
     },
     "problemSolving": {
-      "platforms": ["CodeChef", "Beecrowd", "LeetCode", "GitHub"]
+      "platforms": [
+        "https://www.codechef.com/users/redwantamim525",
+        "https://judge.beecrowd.com/en/profile/334994", 
+        "https://leetcode.com/u/rizon525/",
+        "https://github.com/rahatutzaman-rizon/data-structure-and-algorithom"
+      ]
     }
   };
 
@@ -85,13 +91,18 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
-     
+      <header className="bg-gray-800 shadow-lg py-6">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold text-blue-400">{profileData.personalInfo.name}</h1>
+          <p className="text-xl text-gray-300">{profileData.personalInfo.title}</p>
+        </div>
+      </header>
 
       <main className="container mx-auto px-4 py-12">
         <animated.section style={fadeIn} className="bg-gray-800 rounded-lg shadow-xl p-8 mb-12">
           <h2 className="text-3xl font-bold mb-4 text-blue-400">About Me</h2>
           <p className="text-gray-300 mb-6 text-lg">{profileData.personalInfo.summary}</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-300">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-300">
             <div className="flex items-center">
               <FaEnvelope className="mr-2 text-blue-400" /> {profileData.personalInfo.email}
             </div>
@@ -100,6 +111,12 @@ const ProfilePage = () => {
             </div>
             <div className="flex items-center">
               <FaMapMarkerAlt className="mr-2 text-blue-400" /> {profileData.personalInfo.location.city}, {profileData.personalInfo.location.country}
+            </div>
+            <div className="flex items-center">
+              <FaGlobe className="mr-2 text-blue-400" /> 
+              <a href={profileData.personalInfo.links.website} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                My Website
+              </a>
             </div>
           </div>
         </animated.section>
@@ -142,36 +159,37 @@ const ProfilePage = () => {
         </animated.section>
 
         <animated.section style={fadeIn}>
-    <h2 className="text-3xl font-bold mb-6 text-blue-400">Problem Solving Platforms</h2>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {profileData.problemSolving.platforms.map((platform) => (
-        <a
-          key={platform}
-          href={`https://www.${platform.toLowerCase()}.com/username`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-gray-800 rounded-lg shadow-xl p-4 flex flex-col items-center justify-center hover:bg-gray-700 transition-colors transform hover:scale-105 transition-transform duration-200"
-        >
-          {platform === 'CodeChef' && <SiCodechef className="text-5xl mb-2 text-blue-400" />}
-          {platform === 'LeetCode' && <SiLeetcode className="text-5xl mb-2 text-blue-400" />}
-          {platform === 'GitHub' && <SiGithub className="text-5xl mb-2 text-blue-400" />}
-          {platform === 'Beecrowd' && <span className="text-5xl mb-2 text-blue-400">🐝</span>}
-          <span className="text-gray-300 font-semibold">{platform}</span>
-        </a>
-      ))}
-    </div>
-  </animated.section>
-
-       
+          <h2 className="text-3xl font-bold mb-6 text-blue-400">Problem Solving Platforms</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {profileData.problemSolving.platforms.map((platform) => (
+              <a
+                key={platform}
+                href={platform}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 rounded-lg shadow-xl p-4 flex flex-col items-center justify-center hover:bg-gray-700 transition-colors transform hover:scale-105 transition-transform duration-200"
+              >
+                {platform.includes('codechef') && <SiCodechef className="text-5xl mb-2 text-blue-400" />}
+                {platform.includes('leetcode') && <SiLeetcode className="text-5xl mb-2 text-blue-400" />}
+                {platform.includes('github') && <SiGithub className="text-5xl mb-2 text-blue-400" />}
+                {platform.includes('beecrowd') && <span className="text-5xl mb-2 text-blue-400">🐝</span>}
+                <span className="text-gray-300 font-semibold">{getPlatformName(platform)}</span>
+              </a>
+            ))}
+          </div>
+        </animated.section>
       </main>
 
-      <footer className="bg-gray-900 text-gray-300 py-8 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p>© 2024 {profileData.personalInfo.name}. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };
+
+function getPlatformName(url) {
+  if (url.includes('codechef')) return 'CodeChef';
+  if (url.includes('leetcode')) return 'LeetCode';
+  if (url.includes('github')) return 'GitHub';
+  if (url.includes('beecrowd')) return 'Beecrowd';
+  return 'Coding Platform';
+}
 
 export default ProfilePage;

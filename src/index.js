@@ -12,8 +12,9 @@ import Dashboard from './pages/Dashboard';
 import BlogCard from './pages/BlogCard';
 import AboutSection from './pages/Achievements';
 import Contact from './pages/Contact';
-import ProjectCard from './components/ProjectCard';
+
 import Projects from './pages/Projects';
+
 
 const router = createBrowserRouter([
   {

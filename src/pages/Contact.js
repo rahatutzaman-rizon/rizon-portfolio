@@ -1,10 +1,13 @@
+
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaPhone, FaCode, FaLaptopCode, FaUserTie, FaClock } from 'react-icons/fa';
+import { SiReact, SiJavascript, SiTailwindcss, SiFramer, SiExpress, SiMongodb } from 'react-icons/si';
 
 const Contact = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.2 } },
+    visible: { opacity: 1, transition: { duration: 0.8, staggerChildren: 0.2 } },
   };
 
   const itemVariants = {
@@ -12,61 +15,106 @@ const Contact = () => {
     visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
+  const skills = [
+    { name: 'React', icon: <SiReact />, color: 'text-blue-400' },
+    { name: 'JavaScript', icon: <SiJavascript />, color: 'text-yellow-400' },
+    { name: 'Express.js', icon: <SiExpress />, color: 'text-white' },
+    { name: 'MongoDB', icon: <SiMongodb />, color: 'text-green-500' },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: 'text-teal-400' },
+    { name: 'Framer Motion', icon: <SiFramer />, color: 'text-purple-400' },
+  ];
+
+  const benefits = [
+    { icon: <FaCode />, title: 'Full-Stack Developer', description: 'Proficient in both frontend and backend technologies' },
+    { icon: <FaLaptopCode />, title: 'Modern Tech Stack', description: 'MERN stack expertise for robust web applications' },
+    { icon: <FaUserTie />, title: 'Professional', description: 'Reliable with excellent communication skills' },
+    { icon: <FaClock />, title: 'Timely Delivery', description: 'I respect deadlines and deliver on time' },
+  ];
+
   return (
     <motion.div 
-      className="contact bg-gray-100 min-h-screen flex flex-col md:flex-row p-8" 
+      className="contact bg-gradient-to-br from-gray-900 to-blue-900 min-h-screen flex flex-col justify-center items-center p-8 text-white"
       id="contact"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <motion.div className="footer-left md:w-1/2 mb-8 md:mb-0" variants={itemVariants}>
-        <h1 className="text-5xl font-bold mb-4">
-          Want a <br /> Project?
-        </h1>
-      </motion.div>
-      <motion.div className="footer-right md:w-1/2" variants={itemVariants}>
-        <h3 className="text-xl font-semibold mb-4">I'M ALWAYS INTERESTED ABOUT</h3>
-        <motion.div className="interests grid grid-cols-2 gap-4 mb-6" variants={itemVariants}>
-          {['Multimedia', 'Augmented Reality', 'TV Series', 'Cricket', 'Photography', 'React'].map((interest, index) => (
-            <motion.p key={index} className="bg-blue-200 p-2 rounded" whileHover={{ scale: 1.05 }}>
-              {interest}
-            </motion.p>
-          ))}
-        </motion.div>
-        <hr className="my-6" />
-        <h3 className="text-xl font-semibold mb-4">MINDING A PROJECT?</h3>
-        <motion.button 
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-6"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Contact Me
-        </motion.button>
-        <hr className="my-6" />
-        <motion.div className="social-icons flex space-x-4 mb-6" variants={itemVariants}>
-          {[
-            { icon: 'fa-github', link: 'https://github.com/rahatutzaman-rizon' },
-            { icon: 'fa-linkedin-in', link: 'https://www.linkedin.com/in/rahatutzaman-rizon-373529172/' },
-            { icon: 'fa-youtube', link: 'https://www.youtube.com/@criedfizcken6200' },
-            { icon: 'fa-discord', link: 'https://discord.com/channels/1027879533266878485/1051541409972363364' },
-          ].map((social, index) => (
-            <motion.a 
-              key={index}
-              href={social.link} 
-              target="_blank" 
-              rel="noreferrer"
-              whileHover={{ scale: 1.2 }}
+      <motion.h1 
+        className="text-6xl font-bold mb-12 text-center"
+        variants={itemVariants}
+      >
+        Full-Stack Solutions for Your <span className="text-cyan-400">Next Big Idea</span>
+      </motion.h1>
+
+      <motion.div className="w-full max-w-6xl bg-white/10 backdrop-blur-md rounded-lg p-8 shadow-2xl" variants={itemVariants}>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-3xl font-semibold mb-6">Why Choose Me?</h3>
+            <motion.div className="grid grid-cols-2 gap-6" variants={itemVariants}>
+              {benefits.map((benefit, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white/20 p-4 rounded-lg text-center flex flex-col items-center"
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
+                >
+                  <span className="text-3xl mb-2 text-cyan-400">{benefit.icon}</span>
+                  <h4 className="font-semibold mb-1">{benefit.title}</h4>
+                  <p className="text-sm">{benefit.description}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+          
+          <div>
+            <h3 className="text-3xl font-semibold mb-6">My Tech Stack</h3>
+            <motion.div className="grid grid-cols-2 gap-4 mb-8" variants={itemVariants}>
+              {skills.map((skill, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white/20 p-4 rounded-lg flex items-center space-x-3"
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
+                >
+                  <span className={`text-3xl ${skill.color}`}>{skill.icon}</span>
+                  <span>{skill.name}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <h3 className="text-2xl font-semibold mb-4">Let's Connect</h3>
+            <motion.button 
+              className="w-full bg-cyan-400 hover:bg-cyan-500 text-blue-900 font-bold py-3 px-6 rounded-lg mb-6 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <i className={`fa-brands ${social.icon} text-2xl text-blue-500`} />
-            </motion.a>
-          ))}
-        </motion.div>
-        <hr className="my-6" />
-        <motion.p variants={itemVariants} className="text-gray-600">
-          Contact: 01771276400
-        </motion.p>
+              Start a Project
+            </motion.button>
+            
+            <motion.div className="social-icons flex justify-center space-x-6" variants={itemVariants}>
+              {[
+                { icon: <FaGithub />, link: 'https://github.com/rahatutzaman-rizon' },
+                { icon: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/rahatutzaman-rizon-373529172/' },
+                { icon: <FaEnvelope />, link: 'mailto:rizonrahat199@gmail.com' },
+                { icon: <FaPhone />, link: 'tel:+8801771276400' },
+              ].map((social, index) => (
+                <motion.a 
+                  key={index}
+                  href={social.link} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-3xl hover:text-cyan-400 transition duration-300"
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
+
+
+
+
     </motion.div>
   );
 };
