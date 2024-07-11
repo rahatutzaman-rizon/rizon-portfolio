@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 
 import Blog from './pages/Blog';
 import AboutSection from './pages/Achievements';
+import ContactForm from './pages/Email';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Blog></Blog>
      <AboutSection></AboutSection>
         <Contact />
+        <ContactForm></ContactForm>
         <Footer></Footer>
         
       </div>
