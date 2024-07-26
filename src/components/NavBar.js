@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaHome, FaUser, FaBlog, FaProjectDiagram, FaTachometerAlt, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaCamera, FaBlog, FaProjectDiagram, FaUser, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 import { useMediaQuery } from 'react-responsive';
 
 const NavBar = () => {
@@ -12,27 +12,20 @@ const NavBar = () => {
 
   const navItems = [
     { name: 'Home', path: '/', icon: <FaHome /> },
-    { name: 'About', path: '/', icon: <FaUser /> },
-    { name: 'Blog', path: '/', icon: <FaBlog /> },
-    { name: 'Projects', path: '/', icon: <FaProjectDiagram /> },
-    { name: 'Dashboard', path: '/', icon: <FaTachometerAlt /> },
-    { name: 'Contact', path: '/', icon: <FaEnvelope /> },
+    { name: 'Gallery', path: '/gallery', icon: <FaCamera /> },
+    { name: 'Blog', path: '/blog', icon: <FaBlog /> },
+    { name: 'Projects', path: '/projects', icon: <FaProjectDiagram /> },
+    { name: 'About', path: '/about', icon: <FaUser /> },
+    { name: 'Contact', path: '/contact', icon: <FaEnvelope /> },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -61,14 +54,14 @@ const NavBar = () => {
       animate="visible"
       variants={navVariants}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex-shrink-0 flex items-center">
             <motion.span 
-              className={`font-bold text-xl ${scrolled ? 'text-gray-800' : 'text-white'}`}
+              className="font-bold text-xl text-white"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -82,9 +75,7 @@ const NavBar = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleMenu}
-                className={`inline-flex items-center justify-center p-2 rounded-md ${
-                  scrolled ? 'text-gray-800 hover:text-gray-500' : 'text-white hover:text-gray-300'
-                } focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}
+                className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 {isOpen ? <FaTimes /> : <FaBars />}
               </motion.button>
@@ -98,9 +89,9 @@ const NavBar = () => {
                       to={item.path}
                       className={`px-3 py-2 rounded-md text-sm font-medium ${
                         location.pathname === item.path
-                          ? 'bg-gray-900 text-white'
-                          : `${scrolled ? 'text-gray-800 hover:bg-gray-700' : 'text-gray-300 hover:bg-gray-700'} hover:text-white`
-                      }`}
+                          ? 'bg-gray-700 text-white'
+                          : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                      } transition-colors duration-300`}
                     >
                       {item.name}
                     </Link>
@@ -119,7 +110,7 @@ const NavBar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white"
+            className="md:hidden bg-gray-800"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (
@@ -133,9 +124,9 @@ const NavBar = () => {
                     to={item.path}
                     className={`block px-3 py-2 rounded-md text-base font-medium ${
                       location.pathname === item.path
-                        ? 'bg-gray-900 text-white'
-                        : 'text-gray-800 hover:bg-gray-700 hover:text-white'
-                    }`}
+                        ? 'bg-gray-700 text-white'
+                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    } transition-colors duration-300`}
                     onClick={toggleMenu}
                   >
                     <span className="flex items-center">

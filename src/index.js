@@ -14,6 +14,7 @@ import AboutSection from './pages/Achievements';
 import Contact from './pages/Contact';
 
 import Projects from './pages/Projects';
+import Gallery from './pages/Gallary';
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element:<AboutSection></AboutSection>,
+  },
+
+  {
+    path: "/gallery",
+    element:<Gallery></Gallery>,
   },
 
 ]);
