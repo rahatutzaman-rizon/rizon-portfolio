@@ -28,9 +28,9 @@ const Hero = () => {
   }, [controls, scrollY]);
 
   const socialLinks = [
-    { icon: FaGithub, url: "https://github.com/yourusername" },
-    { icon: FaLinkedin, url: "https://linkedin.com/in/yourusername" },
-    { icon: FaTwitter, url: "https://twitter.com/yourusername" },
+    { icon: FaGithub, url: "https://github.com/rahatutzaman-rizon" },
+    { icon: FaLinkedin, url: "https://www.linkedin.com/in/rahatutzamanrizon/" },
+    
   ];
 
   return (

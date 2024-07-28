@@ -103,12 +103,14 @@ const Gallery = () => {
       </motion.div>
     </motion.div>
   );
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
-      <header className="bg-black bg-opacity-50 py-8 px-4 shadow-lg">
-      <NavBar className="mb-24 min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 mr-48 "></NavBar>
+  
     
+  return (
+    <div>
+    
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+      <header className="bg-black bg-opacity-50 py-8 px-4 shadow-lg">
+
       </header>
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-32">
@@ -156,6 +158,7 @@ const Gallery = () => {
           <p>&copy; 2024 rizon. All rights reserved.</p>
         </div>
       </footer>
+    </div>
     </div>
   );
 };

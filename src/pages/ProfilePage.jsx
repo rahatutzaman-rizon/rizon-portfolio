@@ -5,6 +5,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGlobe } from 'react-icons/fa';
 import { MdWork, MdSchool } from 'react-icons/md';
 import { SiCodechef, SiLeetcode, SiGithub } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 
 const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,12 +16,12 @@ const ProfilePage = () => {
       "title": "Full Stack Developer || Software Developer",
       "email": "rizonrahat199@gmail.com",
       "phone": "+880 1771276400 (WhatsApp)",
-      "location": { "city": "Tangail, Dhaka", "country": "Bangladesh" },
+      "location": { "city": "Badda, Dhaka", "country": "Bangladesh" },
       "summary": "As a software developer seeking an entry-level role, with a focus on applying problem-solving skills to create efficient and innovative solutions. Dedicated to contributing technical expertise in a collaborative environment.",
       "links": {
         "linkedin": "https://www.linkedin.com/in/rahatutzamanrizon",
         "github": "https://github.com/rahatutzaman-rizon",
-        "website": "https://rahatutzaman-rizon-portfolio.vercel.app/" // Replace with your actual website URL
+        "website": "https://rahatutzaman-rizon-portfolio.vercel.app/"
       }
     },
     "workExperience": [
@@ -81,7 +82,7 @@ const ProfilePage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 to-black">
         <animated.div style={fadeIn} className="text-3xl font-bold text-blue-400">
           Loading...
         </animated.div>
@@ -90,30 +91,30 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
-      <header className="bg-gray-800 shadow-lg py-6">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-navy-900 to-black text-gray-100">
+      <header className="bg-gradient-to-r from-navy-900 to-gray-900 shadow-2xl py-8">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-blue-400">{profileData.personalInfo.name}</h1>
-          <p className="text-xl text-gray-300">{profileData.personalInfo.title}</p>
+          <h1 className="text-5xl font-bold text-blue-400 mb-2">{profileData.personalInfo.name}</h1>
+          <p className="text-2xl text-gray-300">{profileData.personalInfo.title}</p>
         </div>
       </header>
 
       <main className="container mx-auto px-4 py-12">
-        <animated.section style={fadeIn} className="bg-gray-800 rounded-lg shadow-xl p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-blue-400">About Me</h2>
-          <p className="text-gray-300 mb-6 text-lg">{profileData.personalInfo.summary}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-300">
-            <div className="flex items-center">
-              <FaEnvelope className="mr-2 text-blue-400" /> {profileData.personalInfo.email}
+        <animated.section style={fadeIn} className="bg-gradient-to-br from-navy-800 to-gray-900 rounded-xl shadow-2xl p-8 mb-12 hover:shadow-blue-900/50 transition-shadow duration-300">
+          <h2 className="text-3xl font-bold mb-6 text-blue-400 border-b border-blue-400 pb-2">About Me</h2>
+          <p className="text-gray-300 mb-8 text-lg leading-relaxed">{profileData.personalInfo.summary}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-gray-300">
+            <div className="flex items-center bg-navy-700 rounded-lg p-3 shadow-md hover:bg-navy-600 transition-colors">
+              <FaEnvelope className="mr-3 text-blue-400 text-xl" /> {profileData.personalInfo.email}
             </div>
-            <div className="flex items-center">
-              <FaPhoneAlt className="mr-2 text-blue-400" /> {profileData.personalInfo.phone}
+            <div className="flex items-center bg-navy-700 rounded-lg p-3 shadow-md hover:bg-navy-600 transition-colors">
+              <FaPhoneAlt className="mr-3 text-blue-400 text-xl" /> {profileData.personalInfo.phone}
             </div>
-            <div className="flex items-center">
-              <FaMapMarkerAlt className="mr-2 text-blue-400" /> {profileData.personalInfo.location.city}, {profileData.personalInfo.location.country}
+            <div className="flex items-center bg-navy-700 rounded-lg p-3 shadow-md hover:bg-navy-600 transition-colors">
+              <FaMapMarkerAlt className="mr-3 text-blue-400 text-xl" /> {profileData.personalInfo.location.city}, {profileData.personalInfo.location.country}
             </div>
-            <div className="flex items-center">
-              <FaGlobe className="mr-2 text-blue-400" /> 
+            <div className="flex items-center bg-navy-700 rounded-lg p-3 shadow-md hover:bg-navy-600 transition-colors">
+              <FaGlobe className="mr-3 text-blue-400 text-xl" /> 
               <a href={profileData.personalInfo.links.website} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
                 My Website
               </a>
@@ -121,65 +122,79 @@ const ProfilePage = () => {
           </div>
         </animated.section>
 
-        <animated.section style={fadeIn} className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-blue-400 flex items-center">
-            <MdWork className="mr-2" /> Career Highlights
+        <animated.section style={fadeIn} className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-blue-400 flex items-center border-b border-blue-400 pb-2">
+            <MdWork className="mr-3 text-3xl" /> Career Highlights
           </h2>
           <VerticalTimeline lineColor={'#60A5FA'}>
             {profileData.workExperience.map((job, index) => (
               <VerticalTimelineElement
                 key={job.company}
                 className="vertical-timeline-element--work"
-                contentStyle={{ background: 'rgb(31, 41, 55)', color: '#fff', boxShadow: '0 3px 0 #60A5FA' }}
-                contentArrowStyle={{ borderRight: '7px solid  rgb(31, 41, 55)' }}
+                contentStyle={{ background: 'linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%)', color: '#fff', boxShadow: '0 3px 0 #60A5FA' }}
+                contentArrowStyle={{ borderRight: '7px solid  #1E3A8A' }}
                 date={`${job.startDate} - ${job.current ? 'Present' : job.endDate}`}
                 iconStyle={{ background: 'rgb(96, 165, 250)', color: '#fff' }}
                 icon={<MdWork />}
               >
-                <h3 className="vertical-timeline-element-title text-xl font-semibold text-blue-400">{job.title}</h3>
-                <h4 className="vertical-timeline-element-subtitle text-gray-300">{job.company} | {job.location}</h4>
-                <ul className="list-disc list-inside text-gray-300 mt-2">
-                  {job.responsibilities.map((resp, i) => <li key={i}>{resp}</li>)}
+                <h3 className="vertical-timeline-element-title text-2xl font-semibold text-blue-300">{job.title}</h3>
+                <h4 className="vertical-timeline-element-subtitle text-gray-300 text-lg">{job.company} | {job.location}</h4>
+                <ul className="list-disc list-inside text-gray-300 mt-4">
+                  {job.responsibilities.map((resp, i) => <li key={i} className="mb-2">{resp}</li>)}
                 </ul>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>
         </animated.section>
 
-        <animated.section style={fadeIn} className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-blue-400 flex items-center">
-            <MdSchool className="mr-2" /> Education
+        <animated.section style={fadeIn} className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-blue-400 flex items-center border-b border-blue-400 pb-2">
+            <MdSchool className="mr-3 text-3xl" /> Education
           </h2>
-          <div className="bg-gray-800 rounded-lg shadow-xl p-6">
-            <h3 className="text-2xl font-semibold text-blue-400">{profileData.education.degree}</h3>
-            <p className="text-gray-300 mb-2 text-lg">{profileData.education.institution}</p>
-            <p className="text-gray-400">{profileData.education.period}</p>
-            <p className="text-gray-300 mt-2 font-semibold">GPA: {profileData.education.gpa}</p>
+          <div className="bg-gradient-to-br from-navy-800 to-gray-900 rounded-xl shadow-2xl p-8 hover:shadow-blue-900/50 transition-shadow duration-300">
+            <h3 className="text-2xl font-semibold text-blue-300 mb-3">{profileData.education.degree}</h3>
+            <p className="text-gray-300 mb-3 text-xl">{profileData.education.institution}</p>
+            <p className="text-gray-400 mb-3">{profileData.education.period}</p>
+            <p className="text-gray-300 font-semibold text-lg">GPA: <span className="text-blue-400">{profileData.education.gpa}</span></p>
           </div>
         </animated.section>
 
         <animated.section style={fadeIn}>
-          <h2 className="text-3xl font-bold mb-6 text-blue-400">Problem Solving Platforms</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 className="text-3xl font-bold mb-8 text-blue-400 border-b border-blue-400 pb-2">Problem Solving Platforms</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {profileData.problemSolving.platforms.map((platform) => (
-              <a
+              <Link
                 key={platform}
                 href={platform}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 rounded-lg shadow-xl p-4 flex flex-col items-center justify-center hover:bg-gray-700 transition-colors transform hover:scale-105 transition-transform duration-200"
+                className="bg-gradient-to-br from-navy-800 to-gray-900 rounded-xl shadow-xl p-6 flex flex-col items-center justify-center hover:shadow-blue-900/50 transition-all duration-300 transform hover:scale-105"
               >
-                {platform.includes('codechef') && <SiCodechef className="text-5xl mb-2 text-blue-400" />}
-                {platform.includes('leetcode') && <SiLeetcode className="text-5xl mb-2 text-blue-400" />}
-                {platform.includes('github') && <SiGithub className="text-5xl mb-2 text-blue-400" />}
-                {platform.includes('beecrowd') && <span className="text-5xl mb-2 text-blue-400">🐝</span>}
-                <span className="text-gray-300 font-semibold">{getPlatformName(platform)}</span>
-              </a>
+                {platform.includes('codechef') && <SiCodechef className="text-6xl mb-4 text-blue-400" />}
+                {platform.includes('leetcode') && <SiLeetcode className="text-6xl mb-4 text-blue-400" />}
+                {platform.includes('github') && <SiGithub className="text-6xl mb-4 text-blue-400" />}
+                {platform.includes('beecrowd') && <span className="text-6xl mb-4 text-blue-400">🐝</span>}
+                <span className="text-gray-300 font-semibold text-lg">{getPlatformName(platform)}</span>
+              </Link>
             ))}
           </div>
         </animated.section>
       </main>
 
+      <footer className="bg-gradient-to-r from-navy-900 to-gray-900 mt-16 py-8 text-center">
+        <div className="flex justify-center space-x-6 mb-4">
+          <a href={profileData.personalInfo.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
+            <FaLinkedin className="text-3xl" />
+          </a>
+          <a href={profileData.personalInfo.links.github} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
+            <FaGithub className="text-3xl" />
+          </a>
+          <a href={`mailto:${profileData.personalInfo.email}`} className="text-blue-400 hover:text-blue-300 transition-colors">
+            <FaEnvelope className="text-3xl" />
+          </a>
+        </div>
+        <p className="text-gray-400">&copy; 2024 {profileData.personalInfo.name}. All rights reserved.</p>
+      </footer>
     </div>
   );
 };

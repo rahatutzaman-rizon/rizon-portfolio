@@ -11,17 +11,25 @@ import App from './App';
 import Dashboard from './pages/Dashboard';
 import BlogCard from './pages/BlogCard';
 import AboutSection from './pages/Achievements';
-import Contact from './pages/Contact';
-
 import Projects from './pages/Projects';
 import Gallery from './pages/Gallary';
+import Layout from './components/Layout';
+import AllProjects from './pages/AllProjects';
+import ContactForm from './pages/Email';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
-  },
+    element: <Layout></Layout>,
+    children:[
+
+      {
+        path:"/",
+        element:<App></App>
+      },
+    
+  
   {
     path: "/dashboard",
     element:<Dashboard></Dashboard>,
@@ -33,7 +41,7 @@ const router = createBrowserRouter([
 
   {
     path: "/contact",
-    element:<Contact></Contact>,
+    element:<ContactForm></ContactForm>,
   },
   {
     path: "/project",
@@ -49,6 +57,11 @@ const router = createBrowserRouter([
     element:<Gallery></Gallery>,
   },
 
+  {
+    path: "/projects",
+    element:<AllProjects></AllProjects>,
+  },
+    ]}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

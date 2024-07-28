@@ -1,147 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaHome, FaCamera, FaBlog, FaProjectDiagram, FaUser, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
-import { useMediaQuery } from 'react-responsive';
+import React, { useState } from 'react';
+import { FaHome, FaCamera, FaBlog, FaProjectDiagram, FaUser, FaEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const navItems = [
+  { name: 'Home', path: '/', icon: <FaHome /> },
+  { name: 'Gallery', path: '/gallery', icon: <FaCamera /> },
+  { name: 'Blog', path: '/blog', icon: <FaBlog /> },
+  { name: 'Projects', path: '/projects', icon: <FaProjectDiagram /> },
+  { name: 'About', path: '/about', icon: <FaUser /> },
+  { name: 'Contact', path: '/contact', icon: <FaEnvelope /> },
+];
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const navItems = [
-    { name: 'Home', path: '/', icon: <FaHome /> },
-    { name: 'Gallery', path: '/gallery', icon: <FaCamera /> },
-    { name: 'Blog', path: '/blog', icon: <FaBlog /> },
-    { name: 'Projects', path: '/projects', icon: <FaProjectDiagram /> },
-    { name: 'About', path: '/about', icon: <FaUser /> },
-    { name: 'Contact', path: '/contact', icon: <FaEnvelope /> },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const navVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        type: 'spring',
-        stiffness: 300,
-        damping: 30
-      }
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 },
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <motion.nav
-      initial="hidden"
-      animate="visible"
-      variants={navVariants}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex-shrink-0 flex items-center">
-            <motion.span 
-              className="font-bold text-xl text-white"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+    <nav className="bg-sky-900 p-4">
+      <div className="container mx-auto flex items-center justify-between">
+        <div className="text-white text-xl font-bold">Rahatutzaman Rizon</div>
+        <div className="hidden md:flex space-x-4">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="text-white flex items-center space-x-2"
             >
-              Rahatutzaman Rizon
-            </motion.span>
-          </Link>
-          
-          {isMobile ? (
-            <div className="-mr-2 flex items-center">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={toggleMenu}
-                className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              >
-                {isOpen ? <FaTimes /> : <FaBars />}
-              </motion.button>
-            </div>
-          ) : (
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {navItems.map((item) => (
-                  <motion.div key={item.name} variants={itemVariants}>
-                    <Link
-                      to={item.path}
-                      className={`px-3 py-2 rounded-md text-sm font-medium ${
-                        location.pathname === item.path
-                          ? 'bg-gray-700 text-white'
-                          : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                      } transition-colors duration-300`}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
+              {item.icon}
+              <span>{item.name}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleDropdown} className="text-white">
+            &#9776;
+          </button>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isOpen && isMobile && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-gray-800"
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navItems.map((item) => (
-                <motion.div
-                  key={item.name}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to={item.path}
-                    className={`block px-3 py-2 rounded-md text-base font-medium ${
-                      location.pathname === item.path
-                        ? 'bg-gray-700 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                    } transition-colors duration-300`}
-                    onClick={toggleMenu}
-                  >
-                    <span className="flex items-center">
-                      {item.icon}
-                      <span className="ml-2">{item.name}</span>
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+      {isOpen && (
+        <div className="md:hidden bg-sky-900 p-4">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="block text-white py-2"
+              onClick={toggleDropdown}
+            >
+              <div className="flex items-center space-x-2">
+                {item.icon}
+                <span>{item.name}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+    </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;

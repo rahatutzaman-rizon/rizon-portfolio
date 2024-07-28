@@ -73,7 +73,7 @@ const BlogCard = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
 
       <header className="bg-black bg-opacity-50 py-8 px-4 shadow-lg">
-      <NavBar className="mb-24 min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 mr-48 "></NavBar>
+
         <div className="container mx-auto">
        
         
