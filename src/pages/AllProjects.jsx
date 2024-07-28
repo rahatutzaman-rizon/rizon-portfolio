@@ -23,7 +23,7 @@ const AllProjects = () => {
 
   const projectData = [
     {
-      image_url: 'https://i.ibb.co/VTYJCyL/petadoption.png',
+      image_url: 'https://i.ibb.co/j4YWR1n/Screen-Shot-Tool-20240729015608.png',
       project_name: "Pet Adoption Corner System",
       description: "A streamlined pet adoption platform with an integrated pet food shop.",
       long_description: "A comprehensive pet adoption platform featuring adoption requests, fundraising campaigns, and donation management. Users can adopt pets, create fundraising campaigns, and manage donations with options to view, remove, donate, and request refunds for their contributions.",

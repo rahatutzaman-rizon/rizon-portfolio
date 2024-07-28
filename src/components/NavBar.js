@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-sky-900 p-4">
+    <nav className="bg-black p-4">
       <div className="container mx-auto flex items-center justify-between">
         <div className="text-white text-xl font-bold">Rahatutzaman Rizon</div>
         <div className="hidden md:flex space-x-4">

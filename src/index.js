@@ -16,6 +16,7 @@ import Gallery from './pages/Gallary';
 import Layout from './components/Layout';
 import AllProjects from './pages/AllProjects';
 import ContactForm from './pages/Email';
+import SingleBlog from './pages/SingleBlog';
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
   {
     path: "/blog",
     element:<BlogCard></BlogCard>,
+  },
+
+  {
+    path: "/blog/:id",
+    element:<SingleBlog></SingleBlog>,
   },
 
   {

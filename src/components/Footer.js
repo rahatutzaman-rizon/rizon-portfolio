@@ -36,14 +36,14 @@ const Footer = () => {
               rizonrahat199@gmail.com
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a href="https://www.facebook.com/rahatutzaman.rizon" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
                 <FaFacebookF size={24} />
               </a>
            
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/rahatutzamanrizon/" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
                 <FaLinkedinIn size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a href="https://github.com/rahatutzaman-rizon" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
                 <FaGithub size={24} />
               </a>
             </div>

@@ -109,9 +109,7 @@ const Gallery = () => {
     <div>
     
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
-      <header className="bg-black bg-opacity-50 py-8 px-4 shadow-lg">
-
-      </header>
+     
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-32">
         <motion.section 
@@ -125,7 +123,7 @@ const Gallery = () => {
           transition={{ duration: 0.5 }}
           ref={ref}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-12">My Photography Portfolio</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-8">My Photography Portfolio</h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
             Explore my collection of captivating moments frozen in time. Each image tells a unique story, 
             showcasing my passion for photography and my perspective on the world around us.
