@@ -17,6 +17,7 @@ import Layout from './components/Layout';
 import AllProjects from './pages/AllProjects';
 import ContactForm from './pages/Email';
 import SingleBlog from './pages/SingleBlog';
+import SingleProject from './pages/SingleProject';
 
 
 const router = createBrowserRouter([
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/project",
-    element:<Projects></Projects>,
+    element:<AllProjects></AllProjects>,
+  },
+  {
+    path: "/project/:id",
+    element:<SingleProject></SingleProject>,
   },
   {
     path: "/about",
@@ -63,10 +68,7 @@ const router = createBrowserRouter([
     element:<Gallery></Gallery>,
   },
 
-  {
-    path: "/projects",
-    element:<AllProjects></AllProjects>,
-  },
+  
     ]}
 ]);
 

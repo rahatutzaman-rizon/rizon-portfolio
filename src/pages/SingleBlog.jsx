@@ -7,7 +7,7 @@ const SingleBlog = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blog/${id}`)
+    fetch(`https://myportfolio-server.vercel.app/blog/${id}`)
       .then(response => response.json())
       .then(data => setPost(data))
       .catch(error => console.error('Error fetching blog post:', error));

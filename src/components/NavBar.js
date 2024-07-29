@@ -6,7 +6,7 @@ const navItems = [
   { name: 'Home', path: '/', icon: <FaHome /> },
   { name: 'Gallery', path: '/gallery', icon: <FaCamera /> },
   { name: 'Blog', path: '/blog', icon: <FaBlog /> },
-  { name: 'Projects', path: '/projects', icon: <FaProjectDiagram /> },
+  { name: 'Projects', path: '/project', icon: <FaProjectDiagram /> },
   { name: 'About', path: '/about', icon: <FaUser /> },
   { name: 'Contact', path: '/contact', icon: <FaEnvelope /> },
 ];

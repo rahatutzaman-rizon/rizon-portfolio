@@ -8,7 +8,7 @@ const BlogCard = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch('http://localhost:5000/blog')
+    fetch('https://myportfolio-server.vercel.app/blog')
       .then(response => response.json())
       .then(data => setBlogPosts(data))
       .catch(error => console.error('Error fetching blog posts:', error));
