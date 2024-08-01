@@ -1,71 +1,88 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaReact, FaNodeJs, FaDatabase, FaCode, FaPalette, FaComments } from 'react-icons/fa';
-import { SiJavascript, SiHtml5, SiCss3, SiMongodb, SiExpress, SiGit } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaDatabase, FaCode, FaPalette, FaComments, FaPython, FaGithub, FaFire } from 'react-icons/fa';
+import { SiJavascript, SiHtml5, SiCss3, SiMongodb, SiExpress, SiGit, SiNextdotjs, SiRedux, SiTailwindcss, SiCplusplus, SiMysql, SiGraphql, SiNetlify, SiVercel, SiPostman, SiTrello } from 'react-icons/si';
 import { TypeAnimation } from 'react-type-animation';
+import { Flipper, Flipped } from 'react-flip-toolkit';
 
 const SkillCategory = ({ title, skills, icon: Icon }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="mb-12 bg-gray-800 rounded-lg p-6 shadow-lg"
-    >
+    <Flipper flipKey={isOpen}>
       <motion.div
-        className="flex items-center justify-between cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-12 bg-gray-800 rounded-lg p-6 shadow-lg"
       >
-        <h3 className="text-2xl font-bold text-purple-300 flex items-center">
-          <Icon className="mr-2" />
-          {title}
-        </h3>
         <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          className="flex items-center justify-between cursor-pointer"
+          onClick={() => setIsOpen(!isOpen)}
         >
-          <FaCode />
-        </motion.div>
-      </motion.div>
-      <AnimatePresence>
-        {isOpen && (
+          <h3 className="text-2xl font-bold text-purple-300 flex items-center">
+            <Icon className="mr-2" />
+            {title}
+          </h3>
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4"
           >
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gray-700 p-4 rounded-lg flex flex-col items-center justify-center"
-              >
-                <skill.icon className="text-4xl mb-2 text-purple-400" />
-                <p className="text-sm text-center text-gray-300">{skill.name}</p>
-              </motion.div>
-            ))}
+            <FaCode />
           </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+        </motion.div>
+        <AnimatePresence>
+          {isOpen && (
+            <Flipped flipId={`category-${title}`}>
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+              >
+                {skills.map((skill, index) => (
+                  <Flipped flipId={`skill-${title}-${index}`} key={index}>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-gray-700 p-4 rounded-lg flex flex-col items-center justify-center"
+                    >
+                      <skill.icon className="text-4xl mb-2 text-purple-400" />
+                      <p className="text-sm text-center text-gray-300">{skill.name}</p>
+                    </motion.div>
+                  </Flipped>
+                ))}
+              </motion.div>
+            </Flipped>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </Flipper>
   );
 };
 
 const About = () => {
   const skillCategories = [
     {
+      title: "Languages",
+      icon: FaCode,
+      skills: [
+        { name: "JavaScript (ES6+)", icon: SiJavascript },
+        { name: "Python", icon: FaPython },
+        { name: "C++", icon: SiCplusplus },
+      ]
+    },
+    {
       title: "Front-End",
       icon: FaReact,
       skills: [
         { name: "React", icon: FaReact },
-        { name: "JavaScript", icon: SiJavascript },
+        { name: "Next.js", icon: SiNextdotjs },
         { name: "HTML5", icon: SiHtml5 },
         { name: "CSS3", icon: SiCss3 },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Redux", icon: SiRedux },
       ]
     },
     {
@@ -74,16 +91,29 @@ const About = () => {
       skills: [
         { name: "Node.js", icon: FaNodeJs },
         { name: "Express.js", icon: SiExpress },
-        { name: "MongoDB", icon: SiMongodb },
+        { name: "GraphQL", icon: SiGraphql },
+        { name: "RESTful APIs", icon: FaDatabase },
       ]
     },
     {
-      title: "Tools",
-      icon: FaCode,
+      title: "Databases",
+      icon: FaDatabase,
+      skills: [
+        { name: "MongoDB", icon: SiMongodb },
+        { name: "MySQL", icon: SiMysql },
+      ]
+    },
+    {
+      title: "DevOps & Tools",
+      icon: FaGithub,
       skills: [
         { name: "Git", icon: SiGit },
-        { name: "VS Code", icon: FaCode },
-        { name: "Postman", icon: FaDatabase },
+        { name: "GitHub", icon: FaGithub },
+        { name: "Firebase", icon: FaFire },
+        { name: "Netlify", icon: SiNetlify },
+        { name: "Vercel", icon: SiVercel },
+        { name: "Postman", icon: SiPostman },
+        { name: "Trello", icon: SiTrello },
       ]
     },
   ];
@@ -111,7 +141,7 @@ const About = () => {
               sequence={[
                 'Hello, I am Rahatutzaman Rizon',
                 1000,
-                'I am a MERN Stack Developer',
+                'I am a Full Stack Developer',
                 1000,
                 'I am passionate about problem-solving',
                 1000,
@@ -123,7 +153,7 @@ const About = () => {
             />
             <p className="text-gray-300 mb-6">
               Currently pursuing my undergraduate degree in ICT at Mawlana Bhasani Science and Technology University. 
-              I'm dedicated to crafting efficient and innovative solutions using the MERN stack.
+              I'm dedicated to crafting efficient and innovative solutions using cutting-edge technologies.
             </p>
             <motion.a
               href="#"
@@ -142,7 +172,7 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-4 text-purple-300">Tech Enthusiasm</h3>
             <div className="flex justify-center space-x-4">
-              {[FaReact, FaNodeJs, SiMongodb, SiExpress].map((Icon, index) => (
+              {[FaReact, FaNodeJs, SiMongodb, SiNextdotjs, SiTailwindcss].map((Icon, index) => (
                 <motion.div
                   key={index}
                   className="text-5xl text-purple-400"
