@@ -5,7 +5,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGlobe } from 'react-icons/fa';
 import { MdWork, MdSchool } from 'react-icons/md';
 import { SiCodechef, SiLeetcode } from 'react-icons/si';
-import { Link } from 'react-router-dom';
+
 
 const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
