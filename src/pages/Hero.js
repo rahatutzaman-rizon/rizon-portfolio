@@ -98,7 +98,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-6 mb-12">
             <motion.a
-              href="https://drive.google.com/file/d/1hSSH9v9jtkBS5Z11iAbqSHVZee55KDyK/view?usp=sharing"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
