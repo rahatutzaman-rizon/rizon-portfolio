@@ -24,7 +24,7 @@ function App() {
         <ProfilePage></ProfilePage>
      <AboutSection></AboutSection>
         <Contact />
-        <ContactForm></ContactForm>a
+        <ContactForm></ContactForm>
        
       </div>
     </div>

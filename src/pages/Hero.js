@@ -158,7 +158,23 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-0 overflow-hidden">
-        {[FaReact, FaNodeJs, SiJavascript, SiCplusplus, SiPython, SiMongodb, SiMysql, SiGit].map((Icon, index) => (
+        {[ SiJavascript,
+  SiPython,
+  SiCplusplus,
+  SiNextdotjs,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiRedux,
+  SiExpress,
+  SiGraphql,
+  SiMongodb,
+  SiMysql,
+  SiGit,
+  SiNetlify,
+  SiVercel,
+  SiPostman,
+  SiTrello].map((Icon, index) => (
           <motion.div
             key={index}
             className="absolute text-4xl text-blue-300 opacity-30"
